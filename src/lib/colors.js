@@ -1,14 +1,19 @@
 export const THEME_COLORS = {
-  PRIMARY:"#7239EA",
+  PRIMARY: "#7239EA",
 
-  WHITE:"#FFF",
-  
-  LIGHTGREY:"#E6EAF3",
-  
-  TEXT:"#121231",
-  TEXT_100:"#383E56",
+  WHITE: "#FFFFFF",
 
-  TEAL :"#04C8C8"
+  BLACK:"#0B091C",
 
+  LIGHTGREY: "#E6EAF3",
 
-}
+  TEXT: "#121231",
+  TEXT_100: "#383E56",
+
+  TEAL: "#04C8C8",
+  TEAL_100: "#6BEBEB",
+
+  GRADIENT_PRIMARY:
+    "linear-gradient(92.31deg, rgba(80, 20, 208, 0.31) 5.74%, rgba(114, 57, 234, 0.81) 28.17%, rgba(124, 255, 255, 0.62) 62.19%, #04C8C8 91.87%)",
+
+};

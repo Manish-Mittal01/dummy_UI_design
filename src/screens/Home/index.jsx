@@ -1,13 +1,12 @@
 import React from "react";
 import CustomizedAccordions from "../../comps/Accordions";
-import { Box, Typography } from "@mui/material";
+import {  Container, Stack, Typography } from "@mui/material";
 import HeroSection from "../../comps/HeroSection";
 import { THEME_COLORS } from "../../lib/colors";
 import styled from "@emotion/styled";
 
 const GradientText = styled.span`
-background: linear-gradient(92.31deg, rgba(80, 20, 208, 0.31) 5.74%, rgba(114, 57, 234, 0.81) 28.17%, rgba(124, 255, 255, 0.62) 62.19%, #04C8C8 91.87%),
-linear-gradient(0deg, #383E56, #383E56);
+background: ${THEME_COLORS.GRADIENT_PRIMARY};
 
   background-clip: text;
   -webkit-background-clip: text;
@@ -26,17 +25,21 @@ const headline = (
 );
 
 export const Home = () => {
-  // TODO: check this mt 
   return (
-    <Box sx={{ p: 3, m: 3, mt:8, color: THEME_COLORS.TEXT_100 }}>
+    <Container sx={{ color: THEME_COLORS.TEXT_100 }}>
 
       <HeroSection
         isLanding
         badgeText="Insight on 150+ million properties and owners"
         headline={headline}
-        subHeading="Smart API’s with future unicorns in mind. Unlimited property data and machine-learning out of the box. Designed for teams that want to shake up their industry."
+        subHeading="Smart API’s with future unicorns in mind. Unlimited property data and machine-learning out of the Container. Designed for teams that want to shake up their industry."
       />
+      <Stack justifyContent={"center"}>
+        {/* <Typography variant="h1" color={THEME_COLORS.TEAL_100} fontSize={"6rem"} >&#8223;</Typography> */}
+        <Typography variant="h1" color={THEME_COLORS.TEAL_100} fontSize={"6rem"} >&quot;</Typography>
+        <quote>Hello</quote>
+      </Stack>
       <CustomizedAccordions />
-    </Box>
+    </Container>
   );
 };

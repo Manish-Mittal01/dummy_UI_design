@@ -52,7 +52,7 @@ function Header(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav" color="transparent" sx={{px:{xs:"none",sm:"3rem"}}} >
+      <AppBar component="nav" color="transparent" position="static" sx={{px:{xs:"none",sm:"3rem"},mb:3}} >
         <Toolbar>
           <IconButton
             color="inherit"

@@ -1,4 +1,4 @@
-import { Container, Chip, Typography, Stack, Button, } from "@mui/material";
+import { Container, Chip, Typography, Stack, Button } from "@mui/material";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import React from "react";
 import { THEME_COLORS } from "../../lib/colors";
@@ -32,18 +32,23 @@ const HeroSection = ({
             variant="contained"
             sx={{
               mt: 2,
-              p:1,
+              px: 2,
+              py: 1,
               background: THEME_COLORS.PRIMARY,
               borderRadius: "15px",
             }}
           >
             {" "}
-            Talk to Expert 
-            <div style={{padding:".5rem", marginLeft:".25rem", borderRadius:"15px", backgroundColor:`${THEME_COLORS.WHITE}30` }}>
-
-              <NorthEastIcon />
-            </div>
-            {" "}
+            Talk to Expert
+            <NorthEastIcon
+            fontSize="large"
+              sx={{
+                p: ".5rem",
+                ml: ".25rem",
+                borderRadius: "10px",
+                backgroundColor: `${THEME_COLORS.WHITE}30`,
+              }}
+            />{" "}
           </Button>
         </Stack>
         <div>Image Will COme HERE </div>

@@ -119,8 +119,7 @@ export default function CustomizedAccordions() {
                 left:0,
                 top:0,
                 bottom:0,
-                background:
-                  "linear-gradient(92.31deg, rgba(80, 20, 208, 0.31) 5.74%, rgba(114, 57, 234, 0.81) 28.17%, rgba(124, 255, 255, 0.62) 62.19%, #04C8C8 91.87%)",
+                background:THEME_COLORS.GRADIENT_PRIMARY,
                 borderRadius: "0px 10px 10px 10px",
                 width:"60%"  
               }}
