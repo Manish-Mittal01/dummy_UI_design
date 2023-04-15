@@ -1,9 +1,14 @@
 export const THEME_COLORS = {
   PRIMARY:"#7239EA",
+
   WHITE:"#FFF",
+  
   LIGHTGREY:"#E6EAF3",
+  
   TEXT:"#121231",
   TEXT_100:"#383E56",
+
+  TEAL :"#04C8C8"
 
 
 }

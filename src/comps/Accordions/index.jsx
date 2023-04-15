@@ -31,7 +31,7 @@ const BottomBorder = styled(Box)`
 `;
 // Header
 const AccordionSummary = styled((props) => (
-  <MuiAccordionSummary
+  <MuiAccordionSummary 
     expandIcon={<ExpandMoreIcon sx={{ fontSize: "1.5rem" ,color:THEME_COLORS.TEXT_100 }} />}
     {...props}
   />

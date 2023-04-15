@@ -7,7 +7,6 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      Hello
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
