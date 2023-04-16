@@ -38,7 +38,8 @@ export const Home = () => {
         sx={{
           width: "90%",
           position: "relative",
-          height: "65vh",
+          height: "25vh",
+          minHeight:"208px",
           m: "auto",
           my: 3,
         }}
@@ -58,6 +59,8 @@ export const Home = () => {
           fontStyle={"italic"}
           // fontSize={"30px"}
           mb={3}
+          position={"absolute"}
+          bottom={0}
         >
           In just a few months, we were able to build from scratch a platform
           that now competes with a publicly traded company.{" "}
@@ -70,6 +73,9 @@ export const Home = () => {
           variant="body2"
           textAlign={"center"}
           fontWeight={600}
+          position={"absolute"}
+          bottom={0}
+          left={"50%"}
           // fontSize={"25px"}
         >
           T. Clark

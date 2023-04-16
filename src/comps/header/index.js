@@ -16,6 +16,7 @@ import Button from "@mui/material/Button";
 
 import { BrandLogo } from "../../assets";
 import { THEME_COLORS } from "../../lib/colors";
+import { Container } from "@mui/material";
 
 const drawerWidth = 240;
 const navItems = ["Home", "Developers"];
@@ -50,9 +51,9 @@ function Header(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Container sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav" color="transparent" position="static" sx={{px:{xs:"none",sm:"3rem"},mb:3}} >
+      <AppBar component="nav" color="transparent" position="static" sx={{ px: { xs: "none", }, mb: 3, boxShadow: 'none' }} >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -86,7 +87,7 @@ function Header(props) {
               sx={{
                 color: THEME_COLORS.WHITE,
                 backgroundColor: THEME_COLORS.PRIMARY,
-                px:".75rem"
+                px: ".75rem"
               }}
             >
               Talk to a Data Expert
@@ -114,16 +115,7 @@ function Header(props) {
           {drawer}
         </Drawer>
       </Box>
-      {/* <Box
-        component="main"
-        sx={{ p: 3, height: "50%", backgroundColor: "red" }}
-      >
-        <Toolbar />
-        <Typography>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </Typography>
-      </Box> */}
-      </Box>
+    </Container>
   );
 }
 
