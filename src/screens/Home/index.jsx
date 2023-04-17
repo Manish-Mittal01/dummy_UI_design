@@ -1,10 +1,20 @@
 import React from "react";
 import CustomizedAccordions from "../../comps/Accordions";
-import { Box, Container, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Container,
+  Stack,
+  Typography,
+  Card,
+  CardContent,
+} from "@mui/material";
 import HeroSection from "../../comps/HeroSection";
 import { THEME_COLORS } from "../../lib/colors";
 import styled from "@emotion/styled";
 import { DoubleQuote } from "../../assets";
+import { apiData,serviceApis,bulkApis,reapiSectionData } from "../../lib/homeData";
+import Footer from "../../comps/Footer";
+
 
 const GradientText = styled.span`
   background: ${THEME_COLORS.GRADIENT_PRIMARY};
@@ -25,8 +35,44 @@ const headline = (
   </Typography>
 );
 
+const ApiDataShowcase = ({ title, arr = [], flexBasis = "100%" }) => (
+  <Stack flexBasis={flexBasis}>
+    <Typography variant="h5" my={5} fontWeight={700} textAlign={"center"}>
+      {title}
+    </Typography>
+    <Stack direction={"row"} justifyContent={"space-between"}>
+      {arr.map((el) => (
+        <Stack direction={"column"} alignItems={"center"}>
+          <img
+            src={el.src}
+            alt={el.text}
+            style={{ maxHeight: "100px", maxWidth: "100px" }}
+          />
+          <Typography variant="body1" fontWeight={700} textAlign={"center"}>
+            {el.text}
+          </Typography>
+        </Stack>
+      ))}
+    </Stack>
+  </Stack>
+);
+
+const ReapiCard = ({ src, title, description }) => (
+  <Card sx={{ maxWidth: 275, mb: 5 }} elevation={0}>
+    {/* <CardMedia sx={{ height:"1rem", maxHeight:"100px"}} image={src} title={title} /> */}
+    <CardContent>
+      <img src={src} alt={title} />
+      <Typography gutterBottom variant="h5" component="div" fontWeight={600}>
+        {title}
+      </Typography>
+      <Typography variant="body2">{description}</Typography>
+    </CardContent>
+  </Card>
+);
+
 export const Home = () => {
   return (
+    <>
     <Container sx={{ color: THEME_COLORS.TEXT_100 }}>
       <HeroSection
         isLanding
@@ -135,6 +181,37 @@ export const Home = () => {
           it apart from the competition.
         </Typography>
       </Stack>
+      <ApiDataShowcase title={"Data Fetching APIs"} arr={apiData} />
+
+      <Stack direction={"row"} mb={10} justifyContent={"space-between"}>
+        <ApiDataShowcase
+          title={"Service APIs"}
+          arr={serviceApis}
+          flexBasis={"55%"}
+        />
+        <ApiDataShowcase
+          title={"Bulk Processing APIs"}
+          arr={bulkApis}
+          flexBasis={"35%"}
+        />
+      </Stack>
+      <Typography variant="h5" fontWeight={600}>
+        <GradientText>Why REAPI</GradientText>
+      </Typography>
+      <Typography variant="h4" fontWeight={600}>
+        Do more. Build faster. Spend less.
+      </Typography>
+      <Stack my={5} justifyContent={"space-between"} direction={"row"}>
+        {reapiSectionData.map((el) => (
+          <ReapiCard
+            src={el.src}
+            title={el.title}
+            description={el.description}
+          />
+        ))}
+      </Stack>
     </Container>
+      <Footer/>
+      </>
   );
 };
