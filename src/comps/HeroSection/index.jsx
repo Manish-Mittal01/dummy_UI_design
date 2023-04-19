@@ -5,10 +5,11 @@ import { THEME_COLORS } from "../../lib/colors";
 
 const HeroSection = ({
   gradientColor = null,
-  isLanding = true,
+  isLanding = false,
   badgeText = "ASD",
   subHeading = "",
   headline,
+  imgSrc=null
 }) => {
   const chipStyle = isLanding
     ? {
@@ -17,14 +18,19 @@ const HeroSection = ({
         fontWeight: 500,
         mb: 2,
       }
-    : {};
+    : {
+        color: THEME_COLORS.WHITE,
+        background: `${THEME_COLORS.WHITE}35`,
+        fontWeight: 500,
+        mb: 2,
+      };
   return (
     <Container>
       <Stack direction="row" spacing={2}>
         <Stack alignItems="start">
           <Chip sx={chipStyle} label={badgeText} />
           {headline}
-          <Typography variant="body1" my={3}>
+          <Typography variant="body1" my={3} color={!isLanding && THEME_COLORS.WHITE}>
             {" "}
             {subHeading}
           </Typography>
@@ -41,7 +47,7 @@ const HeroSection = ({
             {" "}
             Talk to Expert
             <NorthEastIcon
-            fontSize="large"
+              fontSize="large"
               sx={{
                 p: ".5rem",
                 ml: ".25rem",
@@ -51,7 +57,7 @@ const HeroSection = ({
             />{" "}
           </Button>
         </Stack>
-        <div>Image Will COme HERE </div>
+        <img src={imgSrc} alt="Hero img" width={"55%"} />
       </Stack>
     </Container>
   );

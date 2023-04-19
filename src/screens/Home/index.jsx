@@ -14,6 +14,7 @@ import styled from "@emotion/styled";
 import { DoubleQuote } from "../../assets";
 import { apiData,serviceApis,bulkApis,reapiSectionData } from "../../lib/homeData";
 import Footer from "../../comps/Footer";
+import Header from "../../comps/header";
 
 
 const GradientText = styled.span`
@@ -74,6 +75,7 @@ export const Home = () => {
   return (
     <>
     <Container sx={{ color: THEME_COLORS.TEXT_100 }}>
+    <Header />
       <HeroSection
         isLanding
         badgeText="Insight on 150+ million properties and owners"
