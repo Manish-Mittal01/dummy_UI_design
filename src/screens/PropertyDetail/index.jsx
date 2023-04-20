@@ -19,7 +19,7 @@ import {
   Expense,
   GraphPD,
   Project,
-  PsHeroImg,
+  PropertyDetailHero,
 } from "../../assets";
 import styled from "@emotion/styled";
 import Footer from "../../comps/Footer";
@@ -105,7 +105,7 @@ const PropertyDetail = () => {
           headline={headline}
           gradientColor={THEME_COLORS.GRADIENT_PURPLE_TEAL}
           subHeading="Our Property Detail API gives you the physical specs (Square footage, Lot size, bed/bath count etc) and financial details (tax, mortgage and liens) on every parcel in the US. More than 200 fields on each address in our warehouse."
-          imgSrc={PsHeroImg}
+          imgSrc={PropertyDetailHero}
         />
       </Box>
       <Container>

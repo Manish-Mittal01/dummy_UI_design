@@ -15,7 +15,6 @@ import PDB from "./Group 917.png";
 import STB from "./Group 918.png";
 import PsHeroImg from "./Group 772.svg";
 import DoubleQuote from "./‘‘.png";
-import dummy from "./dummy.png";
 import FooterLogo from "./Captura de Pantalla 2023-02-10 a la(s) 14.26 1.png";
 import Analysis from "./003-analysis 1.png";
 import Deployment from "./004-deployment 1.png";
@@ -23,6 +22,22 @@ import Analytic from "./011-analytics 1.png";
 import Project from "./048-project 1.png";
 import Expense from "./042-expenses 1.png";
 import GraphPD from "./028-graph 1.png";
+import DashboardHero from "./DashboardHero.svg";
+import VisualSearch from "./VisualSearch.svg";
+import PropertyDetailHero from "./PropertyDetailHero.svg";
+import PDCSVGenerator from "./PDCSVGenerator.svg";
+import Gear from "./Gear.svg";
+import Free from "./Free.svg";
+import CSVGenerator from "./CSVGenerator.svg";
+import Collapse1 from "./Collapse1.svg";
+import Collapse2 from "./Collapse2.svg";
+import Collapse3 from "./Collapse3.svg";
+import Collapse4 from "./Collapse4.svg";
+import AAHero from "./AAHero.svg";
+import AdvancedFilters from "./AdvancedFilters.svg";
+import CompoundQueries from "./CompoundQueries.svg";
+import Connected from "./Connected.svg";
+import Consistency from "./Consistency.svg";
 
 export {
   PS,
@@ -35,19 +50,34 @@ export {
   AV,
   PDB,
   STB,
-  dummy,
+  Gear,
+  Free,
+  AAHero,
   Project,
   Expense,
   GraphPD,
   Analysis,
   Analytic,
+  Connected,
   PsHeroImg,
+  Collapse1,
+  Collapse2,
+  Collapse3,
+  Collapse4,
   BrandLogo,
   GlobeGrid,
   Deployment,
   FooterLogo,
   LayerStack,
   Development,
+  Consistency,
   ApprovedPng,
   DoubleQuote,
+  CSVGenerator,
+  VisualSearch,
+  DashboardHero,
+  PDCSVGenerator,
+  AdvancedFilters,
+  CompoundQueries,
+  PropertyDetailHero,
 };

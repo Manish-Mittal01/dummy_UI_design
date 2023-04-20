@@ -10,7 +10,7 @@ import React from "react";
 import Header from "../../comps/header";
 import HeroSection from "../../comps/HeroSection";
 import { THEME_COLORS } from "../../lib/colors";
-import { PsHeroImg, dummy } from "../../assets";
+import { AdvancedFilters, CSVGenerator, CompoundQueries, PsHeroImg, VisualSearch} from "../../assets";
 import styled from "@emotion/styled";
 import Footer from "../../comps/Footer";
 
@@ -39,7 +39,7 @@ const LayoutData = [
     ),
     description:
       "Whether they are generating lead lists or doing academic research, users can fine tune our filters to scan for precise scenarios and use cases.",
-    img: dummy,
+    img: AdvancedFilters,
   },
   {
     title: (
@@ -54,7 +54,7 @@ const LayoutData = [
     ),
     description:
       "Our polygon search puts the power in users’ hands to outline their target geo on a map.",
-    img: dummy,
+    img: VisualSearch,
   },
   {
     title: (
@@ -69,7 +69,7 @@ const LayoutData = [
     ),
     description:
       "Search multiple criteria in a single request, including Existence Checks. Give users maximum flexibility to find the properties that matter most to them.",
-    img: dummy,
+    img: CompoundQueries,
   },
   {
     title: (
@@ -84,7 +84,7 @@ const LayoutData = [
     ),
     description:
       "Once your users have searched and found the addresses they need, you can deliver to them in downloadable CSV format using our CSV Generator endpoint. You specify what fields go into the csv.",
-    img: dummy,
+    img: CSVGenerator,
   },
 ];
 
