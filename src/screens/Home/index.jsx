@@ -7,11 +7,12 @@ import {
   Typography,
   Card,
   CardContent,
+  useMediaQuery,
 } from "@mui/material";
 import HeroSection from "../../comps/HeroSection";
 import { THEME_COLORS } from "../../lib/colors";
 import styled from "@emotion/styled";
-import { DashboardHero, DoubleQuote } from "../../assets";
+import { DashboardHero, DoubleQuote, Gear } from "../../assets";
 import {
   apiData,
   serviceApis,
@@ -20,6 +21,7 @@ import {
 } from "../../lib/homeData";
 import Footer from "../../comps/Footer";
 import Header from "../../comps/header";
+import { useTheme } from '@mui/material/styles';
 
 const GradientText = styled.span`
   background: ${THEME_COLORS.GRADIENT_PRIMARY};
@@ -36,27 +38,33 @@ const headline = (
   </Typography>
 );
 
-const ApiDataShowcase = ({ title, arr = [], flexBasis = "100%" }) => (
+const ApiDataShowcase = ({ isXs, title, arr = [], flexBasis = "100%" }) => {
+  const height = "80px"
+  return(
   <Stack flexBasis={flexBasis}>
     <Typography variant="h5" my={5} fontWeight={700} textAlign={"center"}>
       {title}
     </Typography>
-    <Stack direction={"row"} justifyContent={"space-between"}>
+    <Stack direction={{xs:"column",sm:"row"}}justifyContent={"space-between"} flexWrap={"wrap"} gap={2}>
       {arr.map((el) => (
         <Stack direction={"column"} alignItems={"center"}>
           <img
             src={el.src}
             alt={el.text}
-            style={{ maxHeight: "100px", maxWidth: "100px" }}
+            style={{ maxHeight: height, maxWidth: height }}
           />
-          <Typography variant="body1" fontWeight={700} textAlign={"center"}>
+          <Typography
+            variant={isXs? "subtitle2": "body1" }
+            fontWeight={700}
+            textAlign={"center"}
+          >
             {el.text}
           </Typography>
         </Stack>
       ))}
     </Stack>
   </Stack>
-);
+)};
 
 const ReapiCard = ({ src, title, description }) => (
   <Card sx={{ maxWidth: 275, mb: 5 }} elevation={0}>
@@ -72,6 +80,9 @@ const ReapiCard = ({ src, title, description }) => (
 );
 
 export const Home = () => {
+  const theme = useTheme()
+  const isXs = useMediaQuery(theme.breakpoints.down('sm'));
+  console.log("isXs",isXs)
   return (
     <>
       <Container sx={{ color: THEME_COLORS.TEXT_100 }}>
@@ -131,11 +142,19 @@ export const Home = () => {
           </Typography>
         </Stack>
         {/* TODO: add Gear png  */}
-        <Box sx={{ width: "60%", m: "auto" }}>
+        <Box
+          sx={{
+            width: { xs: "80%", sm: "60%" },
+            m: "auto",
+            mt: 8,
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <img src={Gear} alt="gear" style={{ margin: "auto" }} />
           <Typography
-            mt={8}
             textAlign={"center"}
-            variant={"h3"}
+            variant={isXs ? "h4" : "h3"}
             fontWeight={700}
             gutterBottom
           >
@@ -148,7 +167,7 @@ export const Home = () => {
           <Typography
             mt={8}
             textAlign={"center"}
-            variant={"h1"}
+            variant={isXs?"h3":"h1"}
             fontWeight={700}
             gutterBottom
           >
@@ -190,15 +209,25 @@ export const Home = () => {
             set it apart from the competition.
           </Typography>
         </Stack>
-        <ApiDataShowcase title={"Data Fetching APIs"} arr={apiData} />
+        <ApiDataShowcase
+          isXs={isXs}
+          title={"Data Fetching APIs"}
+          arr={apiData}
+        />
 
-        <Stack direction={"row"} mb={10} justifyContent={"space-between"}>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          mb={10}
+          justifyContent={"space-between"}
+        >
           <ApiDataShowcase
+            isXs={isXs}
             title={"Service APIs"}
             arr={serviceApis}
             flexBasis={"55%"}
           />
           <ApiDataShowcase
+            isXs={isXs}
             title={"Bulk Processing APIs"}
             arr={bulkApis}
             flexBasis={"35%"}
@@ -210,7 +239,11 @@ export const Home = () => {
         <Typography variant="h4" fontWeight={600}>
           Do more. Build faster. Spend less.
         </Typography>
-        <Stack my={5} justifyContent={"space-between"} direction={"row"}>
+        <Stack
+          my={5}
+          justifyContent={"space-between"}
+          direction={{ xs: "column", sm: "row" }}
+        >
           {reapiSectionData.map((el) => (
             <ReapiCard
               src={el.src}

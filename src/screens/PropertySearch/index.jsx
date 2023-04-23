@@ -1,19 +1,20 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Container,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import React from "react";
 import Header from "../../comps/header";
 import HeroSection from "../../comps/HeroSection";
 import { THEME_COLORS } from "../../lib/colors";
-import { AdvancedFilters, CSVGenerator, CompoundQueries, PsHeroImg, VisualSearch} from "../../assets";
+import {
+  AdvancedFilters,
+  CSVGenerator,
+  CompoundQueries,
+  PsHeroImg,
+  VisualSearch,
+} from "../../assets";
 import styled from "@emotion/styled";
 import Footer from "../../comps/Footer";
+import HorizontalCard from "../../comps/HorizontalCard";
 
+import NorthEastIcon from "@mui/icons-material/NorthEast";
 const GradientText = styled.span`
   background: ${THEME_COLORS.GRADIENT_GREEN_BLUE_TEXT};
   background-clip: text;
@@ -85,39 +86,37 @@ const LayoutData = [
     description:
       "Once your users have searched and found the addresses they need, you can deliver to them in downloadable CSV format using our CSV Generator endpoint. You specify what fields go into the csv.",
     img: CSVGenerator,
+    childComp: (
+      <Button
+        variant="contained"
+        sx={{
+          mt: 2,
+          px: 2,
+          py: 1,
+          background: THEME_COLORS.BLUE,
+          color: THEME_COLORS.WHITE,
+          borderRadius: "15px",
+          "&:hover": {
+            backgroundColor: THEME_COLORS.BLUE,
+          },
+        }}
+      >
+        {" "}
+        Talk to Expert
+        <NorthEastIcon
+          fontSize="large"
+          sx={{
+            p: ".5rem",
+            ml: ".25rem",
+            borderRadius: "10px",
+            color: THEME_COLORS.WHITE,
+            backgroundColor: `${THEME_COLORS.WHITE}30`,
+          }}
+        />{" "}
+      </Button>
+    ),
   },
 ];
-
-const HorizontalCard = ({ heading, description, imgSrc, index=0 }) => {
-  const direction =index % 2 ? "row" : "row-reverse"
-  return (
-    <Card
-      sx={{
-        display: "flex",
-        my: 8,
-        mx: "auto",
-        alignItems: "center",
-        flexDirection: direction ,
-      }}
-      elevation={0}
-    >
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <CardContent>
-          {heading}
-          <Typography variant="subtitle1" component="div">
-            {description}
-          </Typography>
-        </CardContent>
-      </Box>
-      <CardMedia
-        component="img"
-        sx={{ flexBasis: "40%" }}
-        image={imgSrc}
-        alt="Live from space album cover"
-      />
-    </Card>
-  );
-};
 
 const PropertySearch = () => {
   return (
@@ -144,10 +143,12 @@ const PropertySearch = () => {
         </Typography>
         {LayoutData.map((el, index) => (
           <HorizontalCard
+            key={el.title}
             heading={el.title}
             description={el.description}
             imgSrc={el.img}
             index={index}
+            childComp={el?.childComp}
           />
         ))}
       </Container>

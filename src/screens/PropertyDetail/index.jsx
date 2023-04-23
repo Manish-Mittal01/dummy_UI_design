@@ -12,18 +12,21 @@ import React from "react";
 import Header from "../../comps/header";
 import HeroSection from "../../comps/HeroSection";
 import { THEME_COLORS } from "../../lib/colors";
+import NorthEastIcon from "@mui/icons-material/NorthEast";
 import {
   Analysis,
   Analytic,
   Deployment,
   Expense,
   GraphPD,
+  PDCSVGenerator,
   Project,
   PropertyDetailHero,
 } from "../../assets";
 import styled from "@emotion/styled";
 import Footer from "../../comps/Footer";
 import { NorthEast } from "@mui/icons-material";
+import HorizontalCard from "../../comps/HorizontalCard";
 
 const GradientText = styled.span`
   background: ${THEME_COLORS.GRADIENT_GREEN_BLUE_TEXT};
@@ -87,7 +90,7 @@ const CustomCard = ({ src, title, description }) => (
         <Typography variant="body2">{description}</Typography>
       </CardContent>
       <CardActionArea>
-        <Button size="small" >
+        <Button size="small">
           Explore <NorthEast />
         </Button>
       </CardActionArea>
@@ -127,6 +130,54 @@ const PropertyDetail = () => {
             />
           ))}
         </Grid>
+        <Box sx={{ width: "80%" , m:"auto"}}>
+          <HorizontalCard
+          index={1}
+          imgSrc={PDCSVGenerator}
+            heading={
+              <Typography
+                variant="h5"
+                color={THEME_COLORS.TEXT_100}
+                fontWeight={700}
+                textAlign="center"
+              >
+                CSV <GradientText>Generator</GradientText>
+              </Typography>
+            }
+            childComp={
+              <Button
+                variant="contained"
+                sx={{
+                  mt: 2,
+                  px: 2,
+                  py: 1,
+                  background: THEME_COLORS.PRIMARY,
+                  color: THEME_COLORS.WHITE,
+                  borderRadius: "15px",
+                  "&:hover": {
+                    backgroundColor: THEME_COLORS.PRIMARY,
+                  },
+                }}
+              >
+                {" "}
+                Talk to Expert
+                <NorthEastIcon
+                  fontSize="large"
+                  sx={{
+                    p: ".5rem",
+                    ml: ".25rem",
+                    borderRadius: "10px",
+                    color: THEME_COLORS.WHITE,
+                    backgroundColor: `${THEME_COLORS.WHITE}30`,
+                  }}
+                />{" "}
+              </Button>
+            }
+            description={
+              "Once your users have searched and found the addresses they need, you can deliver to them in downloadable CSV format using our CSV Generator endpoint. You specify what fields go into the csv."
+            }
+          />
+        </Box>
       </Container>
       <Footer />
     </>

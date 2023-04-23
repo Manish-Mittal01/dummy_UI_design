@@ -1,9 +1,10 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
-import { THEME_COLORS } from "../../lib/colors";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
+import useColor from "../../hooks/useColor";
 
 const FooterOverlay = (props) => {
+  const data = useColor()
   return (
     <Box
       sx={{
@@ -33,20 +34,24 @@ const FooterOverlay = (props) => {
               mt: 2,
               px: 2,
               py: 1,
-              background: THEME_COLORS.WHITE,
-              color: THEME_COLORS.PRIMARY,
+              background: data.actionBtnBg,
+              color: data.actionBtColor,
               borderRadius: "15px",
+              '&:hover': {
+                backgroundColor: data.actionBtnBg,
+              },
             }}
           >
             {" "}
             Talk to Expert
             <NorthEastIcon
-            fontSize="large"
+              fontSize="large"
               sx={{
                 p: ".5rem",
                 ml: ".25rem",
                 borderRadius: "10px",
-                backgroundColor: `${THEME_COLORS.WHITE}30`,
+                color: data.actionBtColor,
+                backgroundColor: `${data.actionBtColor}30`,
               }}
             />{" "}
           </Button>

@@ -2,6 +2,7 @@ import { Container, Chip, Typography, Stack, Button } from "@mui/material";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import React from "react";
 import { THEME_COLORS } from "../../lib/colors";
+import useColor from "../../hooks/useColor";
 
 const HeroSection = ({
   gradientColor = null,
@@ -11,6 +12,7 @@ const HeroSection = ({
   headline,
   imgSrc=null
 }) => {
+  const data =useColor()
   const chipStyle = isLanding
     ? {
         color: THEME_COLORS.TEAL,
@@ -40,8 +42,12 @@ const HeroSection = ({
               mt: 2,
               px: 2,
               py: 1,
-              background: THEME_COLORS.PRIMARY,
+              background: data.actionBtnBg,
+              color: data.actionBtColor,
               borderRadius: "15px",
+              '&:hover': {
+                backgroundColor: data.actionBtnBg,
+              },
             }}
           >
             {" "}
@@ -52,7 +58,8 @@ const HeroSection = ({
                 p: ".5rem",
                 ml: ".25rem",
                 borderRadius: "10px",
-                backgroundColor: `${THEME_COLORS.WHITE}30`,
+                color: data.actionBtColor,
+                backgroundColor: `${data.actionBtColor}30`,
               }}
             />{" "}
           </Button>
