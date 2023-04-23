@@ -2,26 +2,47 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import useColor from "../../hooks/useColor";
+import { useLocation } from "react-router-dom";
+import { AABannerOverlay, DefaultOverlay, PDBannerOverlay, PSBannerOverlay } from "../../assets";
 
 const FooterOverlay = (props) => {
   const data = useColor()
+  const location = useLocation();
+  const getImage =()=>{
+    switch (location?.pathname) {
+      case "/property-search":
+        return PSBannerOverlay;
+  
+      case "/property-detail":
+        return PDBannerOverlay;
+
+      case "/address-autocomplete":
+        return AABannerOverlay;
+  
+      default:
+        return DefaultOverlay;
+    }
+
+  } 
+
   return (
     <Box
       sx={{
-        // width: "70%",
-        px:20,
-        py:8,
+        width: {xs:"80%",md:"60%"},
+        p:3,
         borderRadius:4,
         position: "absolute",
         top: "0",
         left: "50%",
-        backgroundColor: "red",
+        backgroundImage: `url(${getImage()})`,
+        backgroundSize: 'cover',
+      backgroundPosition: 'center',
         transform: "translate(-50%,-50%)",
       }}
     >
       <Stack alignItems={"center"} gap={3}>
         <Typography variant="h5" fontWeight={700} textAlign={"center"}>
-          Ready to <br />
+          Ready to 
           Get Started{" "}
         </Typography>
         <Typography variant="body2" textAlign={"center"}>

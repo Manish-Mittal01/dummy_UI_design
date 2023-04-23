@@ -1,4 +1,4 @@
-import { Container, Chip, Typography, Stack, Button } from "@mui/material";
+import { Container, Chip, Typography, Stack, Button, Box } from "@mui/material";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import React from "react";
 import { THEME_COLORS } from "../../lib/colors";
@@ -10,9 +10,9 @@ const HeroSection = ({
   badgeText = "ASD",
   subHeading = "",
   headline,
-  imgSrc=null
+  imgSrc = null,
 }) => {
-  const data =useColor()
+  const data = useColor();
   const chipStyle = isLanding
     ? {
         color: THEME_COLORS.TEAL,
@@ -29,10 +29,18 @@ const HeroSection = ({
   return (
     <Container>
       <Stack direction="row" spacing={2}>
-        <Stack alignItems="start">
+        <Stack alignItems="start" flexBasis={"80%"} >
           <Chip sx={chipStyle} label={badgeText} />
+          <Box sx={{ display: { sm: "block", md: "none" } }}>
+            {" "}
+            <img src={imgSrc} alt="Hero img" width={"100%"} height={"auto"} />
+          </Box>
           {headline}
-          <Typography variant="body1" my={3} color={!isLanding && THEME_COLORS.WHITE}>
+          <Typography
+            variant="body1"
+            my={3}
+            color={!isLanding && THEME_COLORS.WHITE}
+          >
             {" "}
             {subHeading}
           </Typography>
@@ -45,7 +53,7 @@ const HeroSection = ({
               background: data.actionBtnBg,
               color: data.actionBtColor,
               borderRadius: "15px",
-              '&:hover': {
+              "&:hover": {
                 backgroundColor: data.actionBtnBg,
               },
             }}
@@ -64,7 +72,9 @@ const HeroSection = ({
             />{" "}
           </Button>
         </Stack>
-        <img src={imgSrc} alt="Hero img" width={"55%"} />
+        <Box flexBasis={"100%"} sx={{ display: {xs:"none", sm: "none", md: "flex" } , justifyContent:"center", alignItems:"center" }}>
+          <img src={imgSrc} alt="Hero img" width={"100%"} height={"auto"} />
+        </Box>
       </Stack>
     </Container>
   );

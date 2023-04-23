@@ -63,32 +63,36 @@ const data = [
     summary:
       "Whether you’re looking for needles or haystacks, our Search API lets you (and your customers) slice through mountains of data to find properties that fit the most strict criteria.",
     expandKey: "panel1",
+    imgSrc: Collapse1,
   },
   {
     title: "Build killer map apps",
     summary:
       "Get parcel boundaries in GEO JSON format. Implement quickly to design apps that render detailed info about clusters of properties dynamically. With zero latency!",
     expandKey: "panel2",
+    imgSrc: Collapse2,
   },
   {
     title: "Move beyond information to insight",
     summary:
       "With access to current and historical MLS, mortgage and lien data, you’ll have your finger on the pulse of every property in the country. Use it to train A.I. models that forecast what happens next.",
     expandKey: "panel3",
+    imgSrc: Collapse3,
   },
   {
     title: "Layer in property owner data",
     summary:
       "Our demographic datasets connect the home to the homeowner. Our contact database provides current phone, email and social media coordinates so you can reach a decision maker.",
     expandKey: "panel4",
+    imgSrc: Collapse4,
   },
 ];
 
 export default function CustomizedAccordions() {
   const [expanded, setExpanded] = React.useState("panel1");
 
-  const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
+  const handleChange = (panel) => {
+    setExpanded(panel);
   };
 
   const renderImg = () => {
@@ -107,13 +111,13 @@ export default function CustomizedAccordions() {
   };
 
   return (
-    <Stack direction={"row"} gap={4} my={4}justifyContent={"space-evenly"} >
+    <Stack direction={"row"} gap={4} my={4} justifyContent={"space-evenly"}>
       <Box>
         {data.map((accordionData) => (
           <Accordion
             key={accordionData.expandKey}
             expanded={expanded === accordionData.expandKey}
-            onChange={handleChange(accordionData.expandKey)}
+            onChange={() => handleChange(accordionData.expandKey)}
           >
             <AccordionSummary
               aria-controls={`${accordionData.expandKey}d-content`}
@@ -143,10 +147,15 @@ export default function CustomizedAccordions() {
                 }}
               />
             </BottomBorder>
+            <Box sx={{ display: { sm: "block", md: "none" } }}>
+              <img Src={renderImg()} width={"100%"} alt={expanded} />
+            </Box>
           </Accordion>
         ))}
       </Box>
-      <img Src={renderImg()} width={"45%"} alt={expanded} />
+      <Box flexBasis={"100%"} sx={{ display: { xs: "none", sm: "none", md: "block" } }}>
+        <img Src={renderImg()} width={"100%"} alt={expanded} />
+      </Box>
     </Stack>
   );
 }

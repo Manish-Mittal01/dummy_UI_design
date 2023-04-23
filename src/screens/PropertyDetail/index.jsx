@@ -79,8 +79,8 @@ const LayoutData = [
 ];
 
 const CustomCard = ({ src, title, description }) => (
-  <Grid item xs={12} sm={4}>
-    <Card sx={{ maxWidth: 275, mb: 5 }} elevation={0}>
+  <Grid item xs={12} sm={6} md={4} margin={"auto"} width={"fit-content"} >
+    <Card sx={{ maxWidth: 275, mb: 5, m:"auto" }} elevation={0}>
       {/* <CardMedia sx={{ height:"1rem", maxHeight:"100px"}} image={src} title={title} /> */}
       <CardContent>
         <img src={src} alt={title} />
@@ -117,11 +117,12 @@ const PropertyDetail = () => {
           color={THEME_COLORS.TEXT_100}
           fontWeight={700}
           textAlign="center"
+          mb={3}
         >
           Turn your customers <br />
           into super <GradientText>sleuths.</GradientText>
         </Typography>
-        <Grid container spacing={2} alignItems="center">
+        <Grid container spacing={2} wrap="wrap" alignItems="center" justifyContent="center">
           {LayoutData.map((el) => (
             <CustomCard
               title={el.title}

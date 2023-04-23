@@ -38,6 +38,10 @@ import AdvancedFilters from "./AdvancedFilters.png";
 import CompoundQueries from "./CompoundQueries.png";
 import Connected from "./Connected.png";
 import Consistency from "./Consistency.png";
+import AABannerOverlay from "./AABannerOverlay.png";
+import PSBannerOverlay from "./PSBannerOverlay.png";
+import PDBannerOverlay from "./PDbannerOverlay.png";
+import DefaultOverlay from "./DefaultOverlay.png";
 
 export {
   PS,
@@ -77,6 +81,10 @@ export {
   VisualSearch,
   DashboardHero,
   PDCSVGenerator,
+  DefaultOverlay,
+  AABannerOverlay,
+  PDBannerOverlay,
+  PSBannerOverlay,
   AdvancedFilters,
   CompoundQueries,
   PropertyDetailHero,

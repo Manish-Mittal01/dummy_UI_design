@@ -77,7 +77,7 @@ const Footer = () => {
       </Container>
       <Divider className={classes.divider} />
       <Container>
-        <Stack direction={"row"} justifyContent={"space-between"}>
+        <Stack direction={"row"} justifyContent={"space-between"} flexWrap={"wrap"}>
           <p>&copy; 2023 RealEstateAPI.com. All rights reserved.</p>
           <div style={{ marginLeft: "auto" }} className={classes.socialIcons}>
             <Facebook className={classes.icon} />

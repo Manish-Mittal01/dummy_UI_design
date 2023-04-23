@@ -7,7 +7,6 @@ import {
   Typography,
   Card,
   CardContent,
-  useMediaQuery,
 } from "@mui/material";
 import HeroSection from "../../comps/HeroSection";
 import { THEME_COLORS } from "../../lib/colors";
@@ -21,7 +20,6 @@ import {
 } from "../../lib/homeData";
 import Footer from "../../comps/Footer";
 import Header from "../../comps/header";
-import { useTheme } from '@mui/material/styles';
 
 const GradientText = styled.span`
   background: ${THEME_COLORS.GRADIENT_PRIMARY};
@@ -31,21 +29,21 @@ const GradientText = styled.span`
   color: transparent;
 `;
 
-const headline = (
-  <Typography variant={"h3"} fontWeight={700} gutterBottom>
+const headline =  (
+  <Typography variant="h3" fontWeight={700} gutterBottom>
     World’s Most Expressive{" "}
     <GradientText>API for building Disruptive Prop-Tech.</GradientText>
   </Typography>
 );
 
-const ApiDataShowcase = ({ isXs, title, arr = [], flexBasis = "100%" }) => {
+const ApiDataShowcase = ({  title, arr = [], flexBasis = "100%" }) => {
   const height = "80px"
   return(
   <Stack flexBasis={flexBasis}>
     <Typography variant="h5" my={5} fontWeight={700} textAlign={"center"}>
       {title}
     </Typography>
-    <Stack direction={{xs:"column",sm:"row"}}justifyContent={"space-between"} flexWrap={"wrap"} gap={2}>
+    <Stack direction={{xs:"column",sm:"column",md:"row"}}justifyContent={"space-between"} flexWrap={"wrap"} gap={2}>
       {arr.map((el) => (
         <Stack direction={"column"} alignItems={"center"}>
           <img
@@ -54,7 +52,7 @@ const ApiDataShowcase = ({ isXs, title, arr = [], flexBasis = "100%" }) => {
             style={{ maxHeight: height, maxWidth: height }}
           />
           <Typography
-            variant={isXs? "subtitle2": "body1" }
+            variant={"body1" }
             fontWeight={700}
             textAlign={"center"}
           >
@@ -67,7 +65,7 @@ const ApiDataShowcase = ({ isXs, title, arr = [], flexBasis = "100%" }) => {
 )};
 
 const ReapiCard = ({ src, title, description }) => (
-  <Card sx={{ maxWidth: 275, mb: 5 }} elevation={0}>
+  <Card sx={{ maxWidth: 275, mb: 5, mx:{sm:"auto",xs:"auto"} }} elevation={0}>
     {/* <CardMedia sx={{ height:"1rem", maxHeight:"100px"}} image={src} title={title} /> */}
     <CardContent>
       <img src={src} alt={title} />
@@ -80,9 +78,8 @@ const ReapiCard = ({ src, title, description }) => (
 );
 
 export const Home = () => {
-  const theme = useTheme()
-  const isXs = useMediaQuery(theme.breakpoints.down('sm'));
-  console.log("isXs",isXs)
+
+
   return (
     <>
       <Container sx={{ color: THEME_COLORS.TEXT_100 }}>
@@ -154,7 +151,7 @@ export const Home = () => {
           <img src={Gear} alt="gear" style={{ margin: "auto" }} />
           <Typography
             textAlign={"center"}
-            variant={isXs ? "h4" : "h3"}
+            variant={"h3"}
             fontWeight={700}
             gutterBottom
           >
@@ -167,7 +164,7 @@ export const Home = () => {
           <Typography
             mt={8}
             textAlign={"center"}
-            variant={isXs?"h3":"h1"}
+            variant={"h2"}
             fontWeight={700}
             gutterBottom
           >
@@ -210,7 +207,6 @@ export const Home = () => {
           </Typography>
         </Stack>
         <ApiDataShowcase
-          isXs={isXs}
           title={"Data Fetching APIs"}
           arr={apiData}
         />
@@ -221,13 +217,11 @@ export const Home = () => {
           justifyContent={"space-between"}
         >
           <ApiDataShowcase
-            isXs={isXs}
             title={"Service APIs"}
             arr={serviceApis}
             flexBasis={"55%"}
           />
           <ApiDataShowcase
-            isXs={isXs}
             title={"Bulk Processing APIs"}
             arr={bulkApis}
             flexBasis={"35%"}
@@ -242,7 +236,7 @@ export const Home = () => {
         <Stack
           my={5}
           justifyContent={"space-between"}
-          direction={{ xs: "column", sm: "row" }}
+          direction={{ xs: "column", sm: "column", md: "row" }}
         >
           {reapiSectionData.map((el) => (
             <ReapiCard

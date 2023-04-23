@@ -17,6 +17,8 @@ const HorizontalCard = ({
         mx: "auto",
         alignItems: "center",
         flexDirection: direction,
+        flexWrap:{xs:"wrap-reverse",md:"nowrap"},
+        justifyContent:"center"
       }}
       elevation={0}
     >
