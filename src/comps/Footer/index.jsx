@@ -54,23 +54,23 @@ const Footer = () => {
               Solutions
             </Typography>
             <div className={classes.linkList}>
-              <Link href="#">Property Search</Link>
-              <Link href="#">Property Detail</Link>
-              <Link href="#">Bulk Property Detail</Link>
+              <Link href="property-search">Property Search</Link>
+              <Link href="property-detail">Property Detail</Link>
+              <Link href="/">Bulk Property Detail</Link>
             </div>
           </Grid>
           <Grid item xs={12} sm={2} sx={{ mt: 2 }}>
             <div className={classes.linkList}>
-              <Link href="#">Property Comps</Link>
-              <Link href="#">Property Boundary</Link>
-              <Link href="#">Autocomplete</Link>
+              <Link href="/">Property Comps</Link>
+              <Link href="/">Property Boundary</Link>
+              <Link href="address-autocomplete">Autocomplete</Link>
             </div>
           </Grid>
           <Grid item xs={12} sm={2}>
             <div className={classes.linkList}>
-              <Link href="#">CSV Generator</Link>
-              <Link href="#">Skip Trace</Link>
-              <Link href="#">Bulk Skip Trace</Link>
+              <Link href="/">CSV Generator</Link>
+              <Link href="/">Skip Trace</Link>
+              <Link href="/">Bulk Skip Trace</Link>
             </div>
           </Grid>
         </Grid>
